@@ -1,20 +1,3 @@
-# data "aws_ami" "al2023_arm" {
-#   most_recent = true
-
-#   owners = ["amazon"]
-#   filter {
-#     name   = "name"
-#     # values = ["*al2023*-arm64"] # ARM 아키텍처
-#     # values = ["*amzn2-ami-hvm*"] # x86_64 아키텍처
-#     values = [var.ami_name_filter]
-#   }
-
-#   filter {
-#     name   = "virtualization-type"
-#     values = ["hvm"]
-#   }
-# }
-
 data "aws_ami" "al2023_arm" {
   most_recent = true
 
