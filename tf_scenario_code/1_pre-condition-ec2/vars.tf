@@ -16,12 +16,12 @@ variable ami_id {
   type = list(string)
   # default = "ami-0c1f7b7eb05c17ca5"
   default = ["ami-0c031a79ffb01a803"]
-  description = "보안 팀이 승인한 Amazon Linux 2023 AMI ARM64 지원 AMI"
+  description = "보안 팀이 승인한 AMI만 사용"
 }
 
 variable ami_name_filter {
   type = string
   default = "*al2023*-arm64"
   # default = "*al2023*-x86_64"
-  description = "Amazon Linux 2023 AMI ARM64 지원 AMI"
+  description = "보안 팀이 승인한 Amazon Linux 2023 AMI ARM64 지원 AMI"
 }
