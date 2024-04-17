@@ -9,7 +9,7 @@ weight: 30
 
 ## AWS 모범사례
 
-* [MIG-SEC-BP-10.1: AWS 기본 모니터링 도구 검증 및 사용s](https://docs.aws.amazon.com/wellarchitected/latest/migration-lens/mobilize-sec.html#mig-sec-bp-10.1-validate-and-use-monitoring-tools)
+* [MIG-SEC-BP-10.1: AWS 기본 모니터링 도구 검증 및 사용](https://docs.aws.amazon.com/wellarchitected/latest/migration-lens/mobilize-sec.html#mig-sec-bp-10.1-validate-and-use-monitoring-tools)
 
 ---
 
