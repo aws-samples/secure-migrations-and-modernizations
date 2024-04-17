@@ -28,15 +28,15 @@ AWS는 취약성 관리 프로그램에 도움이 되는 다양한 서비스를 
 
 ![Images/pre-condition-0.png](https://github.com/kr-partner/aws-partner-summit-docs/blob/main/static/mobilize/iac/compute/pre-condition-0.png?raw=true)
 
-1. terraform plan을 실행하기 위해 **Start** 버튼을 클릭해주세요.
+2. terraform plan을 실행하기 위해 **Start** 버튼을 클릭해주세요.
 
 ![Images/pre-condition-1.png](https://github.com/kr-partner/aws-partner-summit-docs/blob/main/static/mobilize/iac/compute/pre-condition-1.png?raw=true)
 
-1. terraform plan 과정에서 에러가 발생합니다. 이는 프로비져닝하려는 AMI ID와 CPU Architecture가 보안팀의 보안 요구사항에 부합하지 않는 프로비져닝를 시도했기때문 입니다.
+3. terraform plan 과정에서 에러가 발생합니다. 이는 프로비져닝하려는 AMI ID와 CPU Architecture가 보안팀의 보안 요구사항에 부합하지 않는 프로비져닝를 시도했기때문 입니다.
 
 ![Images/pre-condition-2.png](https://github.com/kr-partner/aws-partner-summit-docs/blob/main/static/mobilize/iac/compute/pre-condition-2.png?raw=true)
 
-1. ami_id 값은 사내 보안팀이 검증한 이미지 `ami-0c1f7b7eb05c17ca5` 여야 합니다. **Variable** 메뉴로 이동하여 **Edit variable**을 선택후 사전에 승인된 ami_id로 변경 합니다.
+4. ami_id 값은 사내 보안팀이 검증한 이미지 `ami-0c1f7b7eb05c17ca5` 여야 합니다. **Variable** 메뉴로 이동하여 **Edit variable**을 선택후 사전에 승인된 ami_id로 변경 합니다.
 
 ![Images/pre-condition-3.png](https://github.com/kr-partner/aws-partner-summit-docs/blob/main/static/mobilize/iac/compute/pre-condition-3.png?raw=true)
 
@@ -44,7 +44,7 @@ AWS는 취약성 관리 프로그램에 도움이 되는 다양한 서비스를 
 > AWS Workshop Studio에서는 Marketplace 의 이미지를 지원하지 않습니다. 따라서, Center for Internet Security(CSI)의 AMI ID 대신 특정 ARM의 AMI ID를 사용하여 Hardened AMI를 사용하는 시나리오를 재연합니다.
 
 
-1. `ami-0c1f7b7eb05c17ca5` 로 변경후, **Save variable** 클릭해 저장하세요. 왼쪽 메뉴바에서 **New run**을 누른 후, 다시 **Start**를 클릭하세요.
+5. `ami-0c1f7b7eb05c17ca5` 로 변경후, **Save variable** 클릭해 저장하세요. 왼쪽 메뉴바에서 **New run**을 누른 후, 다시 **Start**를 클릭하세요.
 
 ```bash
 ami-0c1f7b7eb05c17ca5
@@ -52,15 +52,15 @@ ami-0c1f7b7eb05c17ca5
 
 ![Images/pre-condition-4.png](https://github.com/kr-partner/aws-partner-summit-docs/blob/main/static/mobilize/iac/compute/pre-condition-4.png?raw=true)
 
-1. Terraform Plan 이 이번에는 정상적으로 작동함을 볼 수 있습니다. 승인된 이미지 그리고 승인된 인스턴스 타입만이 Terraform Plan을 성공적으로 마칠 수 있기에 보안 요구사항을 Shift Left한 결과를 의미합니다. 참고로 인스턴스의 예상 비용도 확인할 수 있습니다. 프로비져닝를 위해 **Confirm & apply**를 선택하세요.
+6. Terraform Plan 이 이번에는 정상적으로 작동함을 볼 수 있습니다. 승인된 이미지 그리고 승인된 인스턴스 타입만이 Terraform Plan을 성공적으로 마칠 수 있기에 보안 요구사항을 Shift Left한 결과를 의미합니다. 참고로 인스턴스의 예상 비용도 확인할 수 있습니다. 프로비져닝를 위해 **Confirm & apply**를 선택하세요.
 
 ![Images/pre-condition-5.png](https://github.com/kr-partner/aws-partner-summit-docs/blob/main/static/mobilize/iac/compute/pre-condition-5.png?raw=true)
 
-1. Comment 추가후, **Comfirm plan** 을 클릭하세요. 
+7. Comment 추가후, **Comfirm plan** 을 클릭하세요. 
 
-![Images/pre-condition-6.png](https://github.com/kr-partner/aws-partner-summit-docs/blob/main/static/mobilize/iac/compute/pre-condition6.png?raw=true)
+![Images/pre-condition-6.png](https://github.com/kr-partner/aws-partner-summit-docs/blob/main/static/mobilize/iac/compute/pre-condition-6.png?raw=true)
 
-1. [AWS EC2 console](https://ap-northeast-2.console.aws.amazon.com/ec2/home?region=ap-northeast-2#Instances)에서 `GravitonServerWithAmazonLinux2023`라는 새로운 EC2 Instance 가 프로비져닝되었음을 확인할 수 있습니다. 
+8. [AWS EC2 console](https://ap-northeast-2.console.aws.amazon.com/ec2/home?region=ap-northeast-2#Instances)에서 `GravitonServerWithAmazonLinux2023`라는 새로운 EC2 Instance 가 프로비져닝되었음을 확인할 수 있습니다. 
 
 ![Images/pre-condition-7.png](https://github.com/kr-partner/aws-partner-summit-docs/blob/main/static/mobilize/iac/compute/pre-condition-7.png?raw=true)
 
