@@ -5,7 +5,7 @@ weight: 21
 
 ## 아키텍쳐 오버뷰
 
-![architecture-1.png](./static/architecture/architecture-1.png?classes=lab_picture_small)
+![architecture-1.png](./static/architecture/architecture-1.png)
 
 ## 마이그레이션 보안 요구사항(MSR) - Infrastructure Protection 
 * MSR.IP.1 - 마이그레이션 전후에 취약성 평가를 수행했나요?
@@ -26,19 +26,19 @@ AWS는 취약성 관리 프로그램에 도움이 되는 다양한 서비스를 
 
 1. 상단 오른쪽의 **New run** 버튼을 누르면 위에 공유된 Terraform IaC의 프로비져닝를 시도합니다. 
 
-![Images/pre-condition-0.png](./static/mobilize/iac/compute/pre-condition-0.png?classes=lab_picture_small)
+![Images/pre-condition-0.png](./static/mobilize/iac/compute/pre-condition-0.png)
 
-2. terraform plan을 실행하기 위해 **Start** 버튼을 클릭해주세요.
+1. terraform plan을 실행하기 위해 **Start** 버튼을 클릭해주세요.
 
-![Images/pre-condition-1.png](./static/mobilize/iac/compute/pre-condition-1.png?classes=lab_picture_small)
+![Images/pre-condition-1.png](./static/mobilize/iac/compute/pre-condition-1.png)
 
-3. terraform plan 과정에서 에러가 발생합니다. 이는 프로비져닝하려는 AMI ID와 CPU Architecture가 보안팀의 보안 요구사항에 부합하지 않는 프로비져닝를 시도했기때문 입니다.
+1. terraform plan 과정에서 에러가 발생합니다. 이는 프로비져닝하려는 AMI ID와 CPU Architecture가 보안팀의 보안 요구사항에 부합하지 않는 프로비져닝를 시도했기때문 입니다.
 
-![Images/pre-condition-2.png](./static/mobilize/iac/compute/pre-condition-2.png?classes=lab_picture_small)
+![Images/pre-condition-2.png](./static/mobilize/iac/compute/pre-condition-2.png)
 
-4. ami_id 값은 사내 보안팀이 검증한 이미지 `ami-0c1f7b7eb05c17ca5` 여야 합니다. **Variable** 메뉴로 이동하여 **Edit variable**을 선택후 사전에 승인된 ami_id로 변경 합니다.
+1. ami_id 값은 사내 보안팀이 검증한 이미지 `ami-0c1f7b7eb05c17ca5` 여야 합니다. **Variable** 메뉴로 이동하여 **Edit variable**을 선택후 사전에 승인된 ami_id로 변경 합니다.
 
-![Images/pre-condition-3.png](./static/mobilize/iac/compute/pre-condition-3.png?classes=lab_picture_small)
+![Images/pre-condition-3.png](./static/mobilize/iac/compute/pre-condition-3.png)
 
 
 > AWS Workshop Studio에서는 Marketplace 의 이미지를 지원하지 않습니다. 따라서, Center for Internet Security(CSI)의 AMI ID 대신 특정 ARM의 AMI ID를 사용하여 Hardened AMI를 사용하는 시나리오를 재연합니다.
@@ -50,19 +50,19 @@ AWS는 취약성 관리 프로그램에 도움이 되는 다양한 서비스를 
 ami-0c1f7b7eb05c17ca5
 ```
 
-![Images/pre-condition-4.png](./static/mobilize/iac/compute/pre-condition-4.png?classes=lab_picture_small)
+![Images/pre-condition-4.png](./static/mobilize/iac/compute/pre-condition-4.png)
 
 1. Terraform Plan 이 이번에는 정상적으로 작동함을 볼 수 있습니다. 승인된 이미지 그리고 승인된 인스턴스 타입만이 Terraform Plan을 성공적으로 마칠 수 있기에 보안 요구사항을 Shift Left한 결과를 의미합니다. 참고로 인스턴스의 예상 비용도 확인할 수 있습니다. 프로비져닝를 위해 **Confirm & apply**를 선택하세요.
 
-![Images/pre-condition-5.png](./static/mobilize/iac/compute/pre-condition-5.png?classes=lab_picture_small)
+![Images/pre-condition-5.png](./static/mobilize/iac/compute/pre-condition-5.png)
 
-7. Comment 추가후, **Comfirm plan** 을 클릭하세요. 
+1. Comment 추가후, **Comfirm plan** 을 클릭하세요. 
 
-![Images/pre-condition-6.png](./static/mobilize/iac/compute/pre-condition-6.png?classes=lab_picture_small)
+![Images/pre-condition-6.png](./static/mobilize/iac/compute/pre-condition-6.png)
 
-8. [AWS EC2 console](https://ap-northeast-2.console.aws.amazon.com/ec2/home?region=ap-northeast-2#Instances)에서 `GravitonServerWithAmazonLinux2023`라는 새로운 EC2 Instance 가 프로비져닝되었음을 확인할 수 있습니다. 
+1. [AWS EC2 console](https://ap-northeast-2.console.aws.amazon.com/ec2/home?region=ap-northeast-2#Instances)에서 `GravitonServerWithAmazonLinux2023`라는 새로운 EC2 Instance 가 프로비져닝되었음을 확인할 수 있습니다. 
 
-![Images/pre-condition-7.png](./static/mobilize/iac/compute/pre-condition-7.png?classes=lab_picture_small)
+![Images/pre-condition-7.png](./static/mobilize/iac/compute/pre-condition-7.png)
 
 
 ## Terraform IaC(Infrastructure as Code)
