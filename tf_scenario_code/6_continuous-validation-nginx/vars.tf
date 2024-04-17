@@ -3,10 +3,11 @@ variable "region" {
   default = "ap-northeast-2"
 }
 
-variable ec2_key {
-  type = string
-  default = "key-pair"
-}
+# variable ec2_key {
+#   type = string
+#   default = "key-pair"
+# }
+
 variable ec2_type {
   type = string
   default = "t3.micro"
