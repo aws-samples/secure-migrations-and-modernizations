@@ -29,10 +29,12 @@ weight: 30
 
 - 이메일을 입력합니다.
 ![3_2_4_driftdetection-em3.png](https://github.com/kr-partner/aws-partner-summit-docs/blob/main/static/images/3/2/3_2_4_driftdetection-em3.png?raw=true)
+- Email Recipients 에 본인 이메일 정상적으로 추가되었는지 확인 합니다. 
 ![3_2_5_driftdetection-em4.png](https://github.com/kr-partner/aws-partner-summit-docs/blob/main/static/images/3/2/3_2_5_driftdetection-em4.png?raw=true)
-
-- Email Recipients 에 본인 이메일 정상적으로 추가되었는지 확인 합니다. Run Events 항목에서 Only certain events를 선택하고 `Created`, `Planning`, `Errored` 항목을 선택합니다. Update notification을 클릭 합니다.
-![3_2_6_driftdetection-em4.png](https://github.com/kr-partner/aws-partner-summit-docs/blob/main/static/images/3/2/3_2_6_driftdetection-em5.png?raw=true)
+다음으로 Events에 대한 조건을 확인합니다.
+- Workspace Events : [Only certain events] -  [Drift detected]
+- Run Events :  [No events] 수정된 내용 확인 후 Update notification을 클릭 합니다.
+![3_2_6_driftdetection-em5.png](https://github.com/kr-partner/aws-partner-summit-docs/blob/main/static/images/3/2/3_2_6_driftdetection-em5.png?raw=true)
 
 ## Security Group 설정하기
 - Hashicorp 워크샵의 `New run`을 클릭하여 Security Group을 생성합니다. (Terraform IaC 프로비져닝) 이때 Ingress Rule은 0.0.0.0/0의 `80번 포트`를 개방하도록 설정됩니다. 
