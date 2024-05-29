@@ -15,7 +15,7 @@ resource "aws_instance" "ec2" {
   associate_public_ip_address = true
 
   root_block_device {
-    encrypted = true
+    encrypted = false
   }
 
   lifecycle {
