@@ -23,6 +23,10 @@ resource "aws_instance" "ec2" {
       condition     = data.aws_ami.ubuntu_22.architecture == "x86_64"
       error_message = "AMI 이미지는 aws_instance_type이 x86_64이므로 x86_64 아키텍쳐여야 합니다."
     }
+    postcondition {
+      condition     = self.root_block_device[0].encrypted == true
+      error_message = "root block device는 암호화 설정이 되어있어야 합니다."
+    }
   }
   tags = {
     Name = "Ubuntu_22.04"
