@@ -14,9 +14,9 @@ resource "aws_instance" "ec2" {
   instance_type               = var.instance_type
   associate_public_ip_address = true
 
-  root_block_device {
-    encrypted = false
-  }
+  #root_block_device {
+  #  encrypted = true
+  #}
 
   lifecycle {
     precondition {
