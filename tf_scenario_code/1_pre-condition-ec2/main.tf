@@ -9,14 +9,10 @@ data "aws_ami" "ubuntu_22" {
   }
 }
 
-resource "aws_instance" "ec2" {
+resource "aws_instance" "ec2_postcondition" {
   ami                         = data.aws_ami.ubuntu_22.id
   instance_type               = var.instance_type
   associate_public_ip_address = true
-
-//  root_block_device {
-//    encrypted = false
-//  }
 
   lifecycle {
     precondition {
@@ -33,6 +29,6 @@ resource "aws_instance" "ec2" {
     }
   }
   tags = {
-    Name = "Ubuntu_22.04"
+    Name = "Ubuntu_22.04_PostCondition"
   }
 }
