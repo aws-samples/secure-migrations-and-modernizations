@@ -14,6 +14,10 @@ resource "aws_instance" "ec2" {
   instance_type               = var.instance_type
   associate_public_ip_address = true
 
+  root_block_device {
+    encrypted = false
+  }
+
   lifecycle {
     precondition {
       condition     = contains(["t3.micro", "t3.large", "m6i.midium", "m6i.large"], var.instance_type)
