@@ -14,6 +14,26 @@ resource "aws_instance" "ec2" {
   instance_type               = var.instance_type
   associate_public_ip_address = true
 
+  lifecycle {
+    precondition {
+      condition     = contains(["t3.micro", "t3.large", "m6i.midium", "m6i.large"], var.instance_type)
+      error_message = "허용된 instance_type 은 t3.micro, t3.large, m6i.midium, m6i.large 입니다."
+    }
+    precondition {
+      condition     = data.aws_ami.ubuntu_22.architecture == "x86_64"
+      error_message = "AMI 이미지는 aws_instance_type이 x86_64이므로 x86_64 아키텍쳐여야 합니다."
+    }
+  }
+  tags = {
+    Name = "Ubuntu_22.04"
+  }
+}
+
+resource "aws_instance" "ec2_postcondition" {
+  ami                         = data.aws_ami.ubuntu_22.id
+  instance_type               = var.instance_type
+  associate_public_ip_address = true
+
   root_block_device {
     encrypted = true
   }
@@ -33,6 +53,6 @@ resource "aws_instance" "ec2" {
     }
   }
   tags = {
-    Name = "Ubuntu_22.04"
+    Name = "Ubuntu_22.04_PostCondition"
   }
 }
